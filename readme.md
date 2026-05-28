@@ -55,18 +55,50 @@ Python
 
 import pandas as pd
 
+
+
+
+
 # Load data
 df = pd.read_csv('data.csv')
+
+
+
+
+
+
 
 # Basic operations
 print(df.head())
 print(df.describe())
 
+
+
+
+
 # Filtering
 young_users = df[df['age'] < 30]
 
+
+
+
+
+
+
+
+
+
+
+
 # Grouping
 summary = df.groupby('category').agg({'sales': 'sum', 'profit': 'mean'})
+
+
+
+
+
+
+
 
 # Merging
 result = pd.merge(users, transactions, on='user_id')
@@ -82,26 +114,6 @@ Contributing
 Contributions, issues, and feature requests are welcome!
 Feel free to check the issues page.
 
-License
-This project is licensed under the MIT License.
-
-Made with ❤️ for the data community
-
-text
 
 
----
 
-### How to use:
-1. Copy everything above
-2. Paste it into your repository's `README.md` file
-3. (Optional) Add a folder structure or notebooks later and update the "Next Steps" section
-
-Would you like me to adjust anything? For example:
-- Make it shorter
-- Add more code examples
-- Add a Table of Contents
-- Change the tone (more professional or more casual)
-- Add project-specific sections
-
-Just tell me your preference!
