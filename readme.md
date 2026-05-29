@@ -1,7 +1,5 @@
 # Getting Started with Pandas 🐼
 
-**A beginner-friendly introduction to data manipulation with Pandas in Python.**
-
 Pandas is a powerful, open-source Python library used for **data manipulation, cleaning, and analysis**. It provides two main data structures:
 
 - **Series**: A one-dimensional labeled array
