@@ -31,3 +31,8 @@ import pandas as pd
 read = pd.read_excel("code.xlsx") 
 
 print(read)
+
+
+import pandas as pd
+ridvk = pd.read_excel("data.xlsx")
+print(ridvk)
