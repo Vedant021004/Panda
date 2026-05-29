@@ -1,4 +1,6 @@
 import pandas as pd
-s = pd.Series([12,34,56,], index=["a", "b", "c"])
-print(s)
-print(s['a'])
+
+# Put the .xlsx back in here!
+read = pd.read_excel("code.xlsx") 
+
+print(read)
