@@ -1,3 +1,17 @@
+# first code of panda
+
 import pandas as pd
 s = pd.Series([12,34,56,], index=["a", "b", "c"])
 print(s)
+print(s['a'])
+
+# dataframe
+import pandas as pd
+data = {
+    "name" : ["riddhi", "keshu", "vedant"],
+    "age" : [12,32,12],
+    "city" : ["boisar", "mwaahpur", "jaipur"],
+    "love" : ["vedantkapil","vedantkapil","riddhivermaji"]
+}
+s1 = pd.DataFrame(data)
+print(s1)
