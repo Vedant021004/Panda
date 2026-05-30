@@ -11,3 +11,9 @@ import pandas as pd
 arr = np.array([[43,12,45],[45,12,22]])
 df = pd.DataFrame(arr)
 print(df)
+
+# learning new concept reading the data from the excel sheet
+import pandas as pd
+Da = pd.read_excel("beta.xlsx")
+print(Da)
+print(Da.columns)
