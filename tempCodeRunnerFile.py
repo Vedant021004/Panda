@@ -1,10 +1,7 @@
-import pandas as pd
-df = pd.read_excel("beta.xlsx")
-# print(df)
-# print(df[['Name', 'Price']])
-# print(df.loc[1])
-# print(df.iat[0,0])
-# print(df[(df['Year']>2016) & (df['Price']>12)])
-# print(df[df['Price']>1]['Name'])
-# print(df.query("Year > 2012"))
-print(df['Name'],['Price'])
+data_list = [
+    [101, 'John', 'IT', 75000],
+    [102, 'Sarah', 'HR', 65000],
+    [103, 'Mike', 'IT', 80000]
+]
+df2 = pd.DataFrame(data_list, columns=['Employee_ID', 'Name', 'Department', 'Salary'])
+print("\nMethod 2 - List of Lists:\n", df2)
