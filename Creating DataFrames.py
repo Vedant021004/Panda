@@ -96,3 +96,31 @@ data = [['Laptop', 1000],
 
 df = pd.DataFrame(data)
 print(df)
+
+# Q3. Create an empty DataFrame and then add columns 'City' and 'Population' with 3 cities of your choice
+import pandas as pd
+data = []
+df = pd.DataFrame()
+df['name'] = ['a','b']
+df['age'] = [21,22]
+print(df)
+
+# Q4. Create a DataFrame from this dictionary: {'A': [1, 2, 3], 'B': [4, 5, 6]} with custom index ['x', 'y', 'z'].
+
+import pandas as pd
+data = {
+    'A': [1,2,3],
+    'B': [4,5,6]
+}
+df = pd.DataFrame(data, index=['X','Y','Z'])
+print(df)
+
+# Q5. Create a DataFrame from a NumPy array of shape (4, 3) with random integers between 1-100
+import numpy as np
+import pandas as pd
+# arr1 = np.random(size=(4,3))
+rng = np.random.default_rng()
+arr = rng.integers(low=1, high=100, size=(3, 5))
+print(arr)
+df = pd.DataFrame(arr)
+print(df)
