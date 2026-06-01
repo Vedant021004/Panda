@@ -1,4 +1,10 @@
 import pandas as pd
 df = pd.read_excel("beta.xlsx")
-# print(df)
+print(df)
 print(df[['Name', 'Price']])
+print(df.loc[1])
+print(df.iat[0,0])
+print(df[(df['Year']>2016) & (df['Price']>12)])
+print(df[df['Price']>1]['Name'])
+print(df.query("Year > 2012"))
+print(df['Name'],['Price'])
