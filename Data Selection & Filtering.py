@@ -143,3 +143,17 @@ print("umr is ",umr)
 import pandas as pd
 maas = df[(df['Salary'])==(df['Salary'].max())]
 print(maas)
+
+# Q29. Select the last 3 rows and first 2 columns.
+import pandas as pd
+last = df.iloc[-3:, :2]
+
+# Q30. Select rows where City is in the list ['NYC', 'LA', 'Boston'].
+import pandas as pd
+foud = df["City"].isin(["NYC", "LA", "Boston"])
+print(foud)
+
+# Q31. Select all rows except where Department is 'HR'.
+import pandas as pd
+select = df[df["Department"] != "HR"]
+print(select)
