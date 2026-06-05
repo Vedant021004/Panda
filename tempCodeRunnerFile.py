@@ -1,9 +1,5 @@
 import pandas as pd
-arr = {
-    'a':100,
-    'b':200,
-    'c':300,
-    'd':400,
-    'e':500
-}
-print(pd.Series(arr))
+import numpy as np
+arr = pd.Series([100,200,"python",300.12,400])
+print(arr)
+print(np.array(arr))
