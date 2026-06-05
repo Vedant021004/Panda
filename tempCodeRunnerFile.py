@@ -1,9 +1,9 @@
 import pandas as pd
-fruits = {
-    'Apples':[35,21],
-    'Bananas':[45,24],
-    
-    
+arr = {
+    'a':100,
+    'b':200,
+    'c':300,
+    'd':400,
+    'e':500
 }
-q1 = pd.DataFrame(fruits,index=["2017 Sales","2018 Sales"])
-print(q1)
+print(pd.Series(arr))
