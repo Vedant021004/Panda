@@ -1,13 +1,9 @@
 import pandas as pd
-# missing = df.isnull()
-# print(missing)
-
-# # Q57. Count the total number of missing values in each column.
-# import pandas as pd
-# miss = df.isnull().sum()
-# print(miss)
-
-# # Q58. Find the percentage of missing values per column.
-# import pandas as pdd
-# per = (df.isnull().sum() /len(df))*100
-# print(per)
+fruits = {
+    'Apples':[35,21],
+    'Bananas':[45,24],
+    
+    
+}
+q1 = pd.DataFrame(fruits,index=["2017 Sales","2018 Sales"])
+print(q1)
