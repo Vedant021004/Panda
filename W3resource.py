@@ -70,6 +70,72 @@ arr = pd.Series([100,200,"python",300.12,400])
 print(arr)
 print(np.array(arr))
 
+# Write a Pandas program to convert Series of lists to one Series.
+import pandas as pd
+s = pd.Series([
+    ['Red', 'Green', 'White'],
+    ['Red', 'Black'],
+    ['Yellow']])
+print("Original Series of list")
+print(s)
+s = s.apply(pd.Series).stack().reset_index(drop=True)
+print("One Series")
+print(s)
 
 
+# Write a Pandas program to sort a given Series.
+import pandas as pd
+arr = pd.Series(['100','200',"python",'300.12','400'])
+print(pd.Series(arr).sort_values())
+print(arr)
+
+# Write a Pandas program to add some data to an existing Series.
+import pandas as pd  
+arr = pd.Series(['100','200',"python",'300.12','400'])
+
+arr = pd.concat([arr, pd.Series(['500',"php"])])
+print(arr)
+
+
+import pandas as pd
+s = pd.Series([0,1,2,3,4,5,6,7,8,9,10])
+print("Original Data Series:")
+print(s)
+print("\nSubset of the above Data Series:")
+n = 6
+new_s = s[s < n]
+print(new_s)
+
+
+# Write a Pandas program to create the mean and standard deviation of the data of a given Series.
+import pandas as pd
+arr = pd.Series(['1','2','3','8','9','5','3'], dtype=int)
+print(arr.mean())
+print(arr.std())
+
+# Write a Pandas program to get the items of a given series not present in another given series.
+import pandas as pd
+sr1 = pd.Series([1, 2, 3, 4, 5])
+sr2 = pd.Series([2, 4, 6, 8, 10])
+result = [x for x in sr1 if x not in sr2] #IT CHECKS ONLY INDEXING 
+
+print(result) #IT WILL PRINT WHICH INDEX IS NOT PRESENT INSIDE THE SR1 AND SR2
+result1 = [x for x in sr1 if x not in sr2.values]
+
+print(result1)  #THE PRINTED RESULT IS IN THE ARRAY
+print(pd.Series(result1))
+
+print(sr1.isin(sr2))
+print(~sr1.isin(sr2))
+result2 = sr1[~sr1.isin(sr2)]
+print(result2)
+
+# Write a Pandas program to get the items which are not common of two given series.
+import pandas as pd
+arr = pd.Series([1,2,3,4,5])
+arr1 = pd.Series([2,4,6,8,10])
+result = [x for x in arr if x not in arr1.values] + [x for x in arr1 if x not in arr.values]
+print(result)
+
+# Write a Pandas program to get the items which are not common of two given series.
 
