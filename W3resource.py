@@ -138,4 +138,55 @@ result = [x for x in arr if x not in arr1.values] + [x for x in arr1 if x not in
 print(result)
 
 # Write a Pandas program to get the items which are not common of two given series.
+import pandas as pd
+arr = pd.Series([1,2,3,4,5,6,10])
+result = [x for x in arr if x%5==0]
+result1 = arr[arr%5==0]
+print(result)
+print(result1)
 
+
+# Write a Pandas program to extract items at given positions of a given series.
+import pandas as pd
+num_series = pd.Series(list('2390238923902390239023'))
+element_pos = [0, 2, 6, 11, 21]
+print("Original Series:")
+print(num_series)
+result = num_series.take(element_pos)
+print("\nExtract items at given positions of the said series:")
+print(result)
+
+
+
+import pandas as pd
+data = pd.Series([10, 20, 30, 40, 50, 60, 70])
+
+print("Original Series:")
+print(data)
+
+positions = [0, 3, 5]
+
+result = data.iloc[positions]
+result2 = data.loc[positions]
+
+print("\nItems at given positions:")
+print(result)
+print(result2)
+
+s = pd.Series([10,20,30,40,50])
+
+print(
+    s.where(s.isin([20,40]))
+)
+
+# Write a Pandas program to convert year-month string to dates adding a specified day of the month.
+import pandas as pd
+from dateutil.parser import parse
+date_series = pd.Series(['Jan 2015', 'Feb 2016', 'Mar 2017', 'Apr 2018', 'May 2019'])
+print("Original Series:")
+print(date_series)
+print("\nNew dates:")
+result = date_series.map(lambda d: parse('11 ' + d))
+print(result)
+result1 = pd.to_datetime(date_series) + pd.offsets.Day(10)
+print(result1)
