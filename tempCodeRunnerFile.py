@@ -1,16 +1,17 @@
 import pandas as pd
-import numpy as np
-exam_data = {'name': ['Anastasia', 'Dima', 'Katherine', 'James', 'Emily', 'Michael', 'Matthew', 'Laura', 'Kevin', 'Jonas'],
-'score': [12.5, 9, 16.5, np.nan, 9, 20, 14.5, np.nan, 8, 19],
-'attempts': [1, 3, 2, 3, 2, 3, 1, 1, 2, 1],
-'qualify': ['yes', 'no', 'yes', 'no', 'no', 'yes', 'yes', 'no', 'no', 'yes']}
-labels = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j']
-arr = pd.DataFrame(exam_data)
-print(len(arr.iloc[:,0]))
-print(len(arr.iloc[0,:]))
-print(len(arr.axes[0]))
-print(len(arr.axes[1]))
-print(arr.shape[1])
-print(arr[arr['score'].isnull()])
-print(arr[(arr['score']>=15) & (arr['score']<=20)])
-print(arr[arr['score'].between(15,20)])
+df = pd.DataFrame({
+    'school_code': ['s001','s002','s003','s001','s002','s004'],
+    'class': ['V', 'V', 'VI', 'VI', 'V', 'VI'],
+    'name': ['Alberto Franco','Gino Mcneill','Ryan Parkes', 'Eesha Hinton', 'Gino Mcneill', 'David Parkes'],
+    'date_Of_Birth': ['15/05/2002','17/05/2002','16/02/1999','25/09/1998','11/05/2002','15/09/1997'],
+    'weight': [35, 32, 33, 30, 31, 32],
+    'address': ['street1', 'street2', 'street3', 'street1', 'street2', 'street4'],
+    't_id':['t1', 't2', 't3', 't4', 't5', 't6']})
+print("Original DataFrame:")
+print(df)
+print("\nMultiIndex using columns 't_id' and ‘school_code’:")
+df1 = df.set_index(['t_id', 'school_code'])
+print(df1)
+print("\nMultiIndex using an Index and a column:")
+df2 = df.set_index([pd.Index([0, 1, 2, 3, 4, 5]), 't_id'])
+print(df2)
