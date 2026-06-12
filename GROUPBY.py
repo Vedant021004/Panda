@@ -19,4 +19,10 @@ print(geners)
 # print(geners.sum())
 
 
-print(atr.groupby('Genre').sum()['Gross'].sort_values(ascending = False).head(3))
+# print(atr.groupby('Genre').sum()['Gross'].sort_values(ascending = False).head(3))
+
+print(atr.groupby('Director').sum()['No_of_Votes'].sort_values(ascending = False).head(1))
+
+print(atr.groupby('Series_Title').sum()['IMDB_Rating'].sort_values(ascending = False))
+
+print(atr.groupby('Star1')['Series_Title'].count())
