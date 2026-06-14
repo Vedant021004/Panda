@@ -1,7 +1,3 @@
-Vedant, if you want a **GitHub README that actually impresses recruiters and shows mastery**, don't make it just a list of functions. Explain **what, why, when, syntax, examples, use cases, mistakes, complexity, interview questions, and project applications**.
-
-A professional Pandas README should look like this:
-
 # Pandas: Complete Data Analysis and Manipulation Guide
 
 ## What is Pandas?
