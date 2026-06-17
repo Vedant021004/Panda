@@ -52,7 +52,10 @@ total_by_month = multi.merge(courses, how = 'inner', on = 'course_id')[['level_0
 print(total_by_month.groupby('level_0')['price'].sum())
 
 # making the registration table
+# that shows ---> name, course, price
+
 import pandas as pd
+import matplotlib.pyplot as plt
 
 courses = pd.read_csv('courses.csv')
 students = pd.read_csv('students.csv')
@@ -60,3 +63,102 @@ nov = pd.read_csv('reg-month1.csv')
 dec = pd.read_csv('reg-month2.csv')
 matches = pd.read_csv('matches.csv')
 delivery = pd.read_csv('deliveries.csv')
+
+print(students)
+print(courses)
+regs = pd.concat([dec,nov],ignore_index = True)
+print(regs)
+
+multi = pd.concat([dec,nov],ignore_index = True)
+
+inner_1 = multi.merge(courses, how = 'inner', on = 'course_id')
+print(inner_1)
+
+inner_2 = multi.merge(students, how = 'inner', on = 'student_id')
+print(inner_2)
+
+print(inner_1.columns)
+print(inner_2.columns)
+
+super_join = inner_1.merge(inner_2, how = 'inner' ,on=['student_id', 'course_id'])[['name','price','course_name']]
+
+print(super_join)
+
+# find the barchart of course revenue
+new_join = multi.merge(courses, on = 'course_id').groupby('course_name')['price'].sum().plot(kind = 'bar')
+print(new_join)
+plt.show()
+
+# find the students who enrolled in both the months
+import pandas as pd
+import matplotlib.pyplot as plt
+import numpy as np
+
+courses = pd.read_csv('courses.csv')
+students = pd.read_csv('students.csv')
+nov = pd.read_csv('reg-month1.csv')
+dec = pd.read_csv('reg-month2.csv')
+matches = pd.read_csv('matches.csv')
+delivery = pd.read_csv('deliveries.csv')
+
+multi = pd.concat([nov,dec],keys = ['nov','dec']).reset_index()
+
+enrolled = multi.merge(students, on = 'student_id').merge(courses, on = 'course_id')[['name','level_0']].value_counts()
+
+both  = np.intersect1d(nov['student_id'],dec['student_id'])
+both1 = students[students['student_id'].isin(both)]
+# print(both)
+# print(both1)
+
+# find the courses that got 0 enrollment
+# find = multi.merge(courses, how = 'right', on = 'course_id')['student_id'].isnull()
+
+# zero_courses = find[find['student_id'].isna()]
+
+# print(zero_courses[['course_id','course_name']])
+
+
+# students with 0 enrollment
+import pandas as pd
+import matplotlib.pyplot as plt
+import numpy as np
+
+courses = pd.read_csv('courses.csv')
+students = pd.read_csv('students.csv')
+nov = pd.read_csv('reg-month1.csv')
+dec = pd.read_csv('reg-month2.csv')
+matches = pd.read_csv('matches.csv')
+delivery = pd.read_csv('deliveries.csv')
+
+multi = pd.concat([nov,dec],keys = ['nov','dec']).reset_index()
+student_enroll = students['student_id'],multi['student_id']
+
+student_id_list = np.setdiff1d(students['student_id'],multi['student_id'])
+print(students[students['student_id'].isin(student_id_list)].shape[0])
+
+
+# real life data problem solving
+import pandas as pd
+import matplotlib.pyplot as plt
+import numpy as np
+
+courses = pd.read_csv('courses.csv')
+students = pd.read_csv('students.csv')
+nov = pd.read_csv('reg-month1.csv')
+dec = pd.read_csv('reg-month2.csv')
+matches = pd.read_csv('matches.csv')
+delivery = pd.read_csv('deliveries.csv')
+
+
+# print(matches) # stadium data
+# print(delivery) # run data
+
+# find the top 3 stadium with heighest six / matches ratio 
+best = delivery.merge(matches,left_on = 'match_id', right_on = 'id')
+ratio = best[best['batsman_runs'] == 6]
+mat = matches['venue'].value_counts()
+bat = ratio.groupby('venue')['venue'].count()
+
+print((mat/bat).sort_values(ascending = False).head(3))
+
+
